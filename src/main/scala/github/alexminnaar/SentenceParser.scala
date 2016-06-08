@@ -9,6 +9,7 @@ import scala.collection.JavaConversions._
 
 object SentenceParser {
 
+  //load corenlp parsing model
   val lexParser = LexicalizedParser.loadModel("edu/stanford/nlp/models/lexparser/englishPCFG.ser.gz")
 
   //extract dependency pairs within sentence tokens
@@ -21,6 +22,7 @@ object SentenceParser {
 
     tdl.map { x =>
 
+      //create dependency pair
       DepPair(
         w1 = x.gov().toString(),
         rel = x.reln().toString,
